@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gitview.databinding.FragmentUserDetailBinding
 import com.example.gitview.utils.ImageLoader
 import kotlinx.coroutines.launch
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 
 class UserDetailFragment : Fragment() {
 
@@ -65,6 +67,7 @@ class UserDetailFragment : Fragment() {
                     textUsername.text = it.login
                     textFollowers.text = "${it.followers} Followers"
                     textFollowing.text = "${it.following} Following"
+                    createdOn.text= getFormattedDate(it.createdAt)
                     ImageLoader.loadImage(it.avatarUrl, imageAvatar)
                 }
             }
@@ -91,4 +94,10 @@ class UserDetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+}
+
+fun getFormattedDate(isoDate:String): String {
+    val parsedDate = OffsetDateTime.parse(isoDate)
+    val formattedDate = parsedDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+    return "Created On: $formattedDate"
 }

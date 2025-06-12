@@ -10,12 +10,15 @@ android {
 
     defaultConfig {
         applicationId = "com.example.gitview"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lint {
+        disable += "NullSafeMutableLiveData"
     }
     buildFeatures {
         buildConfig = true
@@ -62,14 +65,9 @@ dependencies {
     implementation (libs.androidx.lifecycle.livedata.ktx)
     implementation (libs.retrofit)
     implementation(libs.logging.interceptor)
-
     implementation (libs.kotlinx.coroutines.android)
     implementation (libs.glide)
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
     implementation (libs.converter.gson)
     implementation (libs.androidx.paging.runtime.ktx)
-    implementation(libs.coil.network.okhttp)
-
-
-
 }

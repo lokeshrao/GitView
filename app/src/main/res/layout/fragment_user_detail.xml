@@ -60,6 +60,13 @@
             android:text="@string/following"
             android:textSize="14sp" />
     </LinearLayout>
+    <TextView
+        android:id="@+id/createdOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4.dp"
+        android:text="@string/created_on"
+        android:textSize="14sp" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageAvatar"
