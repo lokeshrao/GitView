@@ -15,6 +15,9 @@ class UserPagingSource(
             val response = apiService.searchUsers(query, currentPage, params.loadSize)
             val users = response.items
 
+            if (response.totalCount == 0) {
+                return LoadResult.Error(Exception("No users found."))
+            }
             LoadResult.Page(
                 data = users,
                 prevKey = if (currentPage == 1) null else currentPage - 1,

@@ -42,8 +42,7 @@ class SearchFragment : Fragment() {
         bookmarkPrefs = BookmarkPrefs(requireContext())
 
         adapter = SearchUserAdapter(bookmarkPrefs) { username ->
-            val action = SearchFragmentDirections
-                .actionSearchFragmentToUserDetailFragment(username)
+            val action = SearchFragmentDirections.actionSearchFragmentToUserDetailFragment(username)
             findNavController().navigate(action)
         }
 
@@ -81,14 +80,13 @@ class SearchFragment : Fragment() {
                 if (refreshState is LoadState.Error) {
                     Toast.makeText(
                         requireContext(),
-                        "Error: ${refreshState.error.localizedMessage ?: "Unknown error"}",
+                        refreshState.error.localizedMessage ?: "Unknown error",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
 
                 binding.textViewNoData.visibility =
-                    if (refreshState is LoadState.NotLoading && adapter.itemCount == 0)
-                        View.VISIBLE else View.GONE
+                    if (refreshState is LoadState.NotLoading && adapter.itemCount == 0) View.VISIBLE else View.GONE
             }
         }
     }
