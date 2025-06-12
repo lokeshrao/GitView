@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_primary">#388E3C</color>
+    <color name="green_primary_container">#C8E6C9</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="selector_checked">?attr/colorPrimary</color>
+    <color name="selector_unchecked">@color/white</color>
+</resources>
